@@ -1,0 +1,57 @@
+.content-container {
+      min-height: calc(100vh - 100px);
+    }
+
+a {
+    text-decoration: none;
+    color: #fff
+}
+
+.hover-red {
+    color: #868d94
+}
+
+.hover-red:hover {
+    color: #f26651;
+}
+
+.btn:hover {
+    transition: all .7s ease
+}
+
+a:hover {
+    color: #848484;
+    transition: all .6s ease
+}
+
+button.btn-danger:hover {
+    background: #b761f2;
+    border-color: #b761f2
+}
+
+.header-btn button a {
+    color: #fff
+}
+
+.nav {
+    border-bottom: 2px solid #ebebeb;
+}
+
+a.fw-bold.navbar-brand {
+    color: #fff
+}
+
+a.fw-bold.navbar-brand:hover {
+    color: #848484;
+}
+
+.form-control {
+    width: 300px
+}
+
+.form-select {
+    width: 300px
+}
+
+
+

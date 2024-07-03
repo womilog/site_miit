@@ -1,0 +1,19 @@
+.row-home-first {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.miit.ru/content/gl_korp.jpg?id_wm=875028");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 40vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+#image-miit {
+    margin: 40px auto;
+    text-align: center
+}
+#image-miit a:hover {
+    background: #b761f2;
+    border-color: #b761f2
+}

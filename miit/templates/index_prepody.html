@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load prepody_tags %}
+
+{% block content %}
+<h1 class="my-3">Преподы в МИИТе</h1>
+{% show_categories cat_selected %}
+{% block prepody_content %}
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-8 mb-5">
+            <div class="d-flex justify-content-start border border-dark-subtle rounded-3 my-4 para shadow prepod-post">
+                <div>
+                    {% if prepod.photo %}
+                    <img class="rounded" src="{{ prepod.photo.url }}" width="300px" height="300px">
+                    {% endif %}
+                </div>
+                <div class="ms-3">
+                    <h5>Полное имя: {{ prepod.name }}</h5>
+                    <h6>Возраст: {{ prepod.age }}</h6>
+                    <h6>Звание: {{ prepod.post }}</h6>
+                    <h6>Кликуха: {{ prepod.nickname }}</h6>
+                    <h6>Фразочки: {{ prepod.phrases }}</h6>
+                    <h6>Время обновление статьи: {{ prepod.time_update }}</h6>
+                    <h6>Автор статьи: {{ prepod.author.username|default:"неизвестен" }}</h6>
+                </div>
+            </div>
+            <div class="prepod-post border border-dark-subtle rounded-3 shadow p-4">
+                <h4>Биография:</h4>
+                <p>{{ prepod.content }}</p>
+            </div>
+        </div>
+        <div class="col-3 my-4 side_nav">
+            <ul class="dropdown-menu d-block position-static mx-0 shadow bg-dark ps-2">
+                {% if prepod.author == user %}
+                <li><a href="{% url 'prepody_edit_page' prepod.slug %}">Редактировать статью</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="{% url 'prepody_delete_page' prepod.slug %}">Удалить статью</a></li>
+                <li><hr class="dropdown-divider"></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'prepody_add_page' %}">Создать статью</a></li>
+                <li><hr class="dropdown-divider"></li>
+                {% endif %}
+                <li><a href="{{ prepod.cat.get_absolute_url }}">Другие преподавтели категории: {{ prepod.cat }}</a></li>
+                <li><hr class="dropdown-divider"></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

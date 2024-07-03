@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'prepody/css/style.css' %}">
+</head>
+<body class="bg-light text-dark ">
+    <header>
+        <div class="header navbar bg-dark py-3">
+            <div class="main-header container d-flex justify-content-between">
+                <div class="header-links justify-content-start">
+                    <a href="{% url 'home' %}" class="fw-bold navbar-brand">сРУТ(ТИИМ)</a>
+                    <a href="{% url 'about' %}">Про нас</a>
+                    <a href="{% url 'contact' %}" class="ms-2">Связаться с нами</a>
+                </div>
+
+                {% if user.is_authenticated %}
+                <div class="header-btn justify-content-end">
+                    <button class="btn btn-danger"><a href="{% url 'users:profile' %}">Профиль</a></button>
+                    <form method="post" action="{% url 'users:logout' %}" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Выйти</button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="header-btn justify-content-end">
+                    <button class="btn btn-danger"><a href="{% url 'users:register' %}">Регистрация</a></button>
+                    <button class="btn btn-danger"><a href="{% url 'users:login' %}">Войти</a></button>
+                </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+        <div class="nav navbar py-3">
+            <div class="container">
+                <a href="{% url 'prepody_home' %}" class="hover-red">Преподы</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow-1">
+            <!-- Блок контента -->
+        <div class="content container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!-- Конец блока контента -->
+    </main>
+
+    <footer class="footer navbar fixed-bottom bg-dark text-light">
+        <div class="container">
+            <div class="prava">
+                <span>Все права защищены &copy;</span>
+            </div>
+
+            <div class="links-footer">
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+                <a href="#">VK</a>
+                <a href="#">Telega</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

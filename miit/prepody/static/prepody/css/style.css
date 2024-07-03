@@ -1,0 +1,16 @@
+.card {
+    width: 300px;
+}
+
+.side_nav a {
+    color: #fff
+}
+
+.side_nav a:hover {
+    color: #848484;
+    transition: all .6s ease
+}
+
+.prepod-post {
+    background: #f3f3f3
+}

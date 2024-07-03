@@ -1,0 +1,7 @@
+{% for cat in cats %}
+{% if cat.id == cat_selected %}
+<a class="btn btn-outline-dark active">{{ cat.name }}</a>
+{% else %}
+<a href="{{ cat.get_absolute_url }}" class="btn btn-outline-dark ms-2">{{ cat.name }}</a>
+{% endif %}
+{% endfor %}
